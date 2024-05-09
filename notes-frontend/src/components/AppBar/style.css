@@ -1,0 +1,27 @@
+.appbar {
+    background: #FF0000; 
+    height: 89px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: sticky;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.19), 6px 6px 6px rgba(0,0,0,0.15);
+    width: 100%;
+  
+  }
+  
+  .appbar img {
+    max-width: 100px;
+    margin-left: 10px;
+  }
+
+  .subtitle {
+    font-size: 35px;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.logo {
+    max-width: 100px;
+    margin-left: 10px;
+  }

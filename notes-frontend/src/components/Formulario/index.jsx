@@ -22,6 +22,10 @@ export default function Formulario({ setRankData }) {  // Recebe setRankData com
         .catch((error) => console.log(error));
     }
 
+    const handleClick = () => {
+        window.location.href = '/login';
+    }
+
     return (
         <form className="form-card" onSubmit={acharRank}>
             <input
@@ -41,6 +45,7 @@ export default function Formulario({ setRankData }) {  // Recebe setRankData com
                 value={tag}
             ></textarea>
             <button type="submit" className="btn">Procurar</button>
+            <button className="btn" onClick={handleClick}>Login</button>
         </form>
     );
 }
