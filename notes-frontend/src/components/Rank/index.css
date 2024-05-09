@@ -1,0 +1,33 @@
+.card-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+    color: #000000;
+    margin-bottom: 10px;;
+    
+  }
+  .card-content{
+    height: 100%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.1em;
+    color: #4c4c4c;
+    display: flex;
+    align-items: center;
+  
+    justify-content: center;
+    flex-grow: 2;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.48);
+    padding: 15px;
+    width: 210px;
+    min-height: 125px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column; 
+    
+  
+  }
