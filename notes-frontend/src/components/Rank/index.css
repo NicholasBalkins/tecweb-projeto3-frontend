@@ -1,33 +1,82 @@
-.card-title {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.3em;
-    margin-bottom: 0.5em;
-    color: #000000;
-    margin-bottom: 10px;;
-    
-  }
-  .card-content{
-    height: 100%;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.1em;
-    color: #4c4c4c;
-    display: flex;
-    align-items: center;
-  
-    justify-content: center;
-    flex-grow: 2;
-  }
-  
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.48);
-    padding: 15px;
-    width: 210px;
-    min-height: 125px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column; 
-    
-  
-  }
+.rank-dlt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: #000000;
+  width: 25%;
+  min-width: 20%;
+  flex-direction: column;
+}
+
+.lixo {
+  width: 300%;
+}
+.rank-img {
+  width: 10%;
+}
+
+.usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: #000000;
+  width: 95%;
+  min-width: 90%;
+}
+
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: #000000;
+  width: 30%;
+  height: 30%;
+}
+
+.usuario-pfp {
+  width: 30%;
+  height: 100%;
+}
+
+.rank-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: #000000;
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+
+}
+
+.rank-ranking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: #000000;
+  width: 100%;
+  height: 100%;
+}
+
+.rank-info-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  flex-direction: row;
+}
+
+.rank-info-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  flex-direction: row;
+}
