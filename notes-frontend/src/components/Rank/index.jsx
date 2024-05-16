@@ -34,16 +34,22 @@ function Rank() {
             });
     };
 
+    const handleClick = (user,tag) => {
+        // Navigate to a new page based on the rank data
+        // You can use React Router or any other navigation library here
+        window.location.href = `/${user}/${tag}`;
+    };
+
     return (
         <div className='container'>
             {ranks.map((rank, index) => (
-                <button key={index} className='rank'>
-                    <img className='usuario-pfp'src='src\assets\img\Grandmaster_Emblem.png' />
+                <button key={index} className='rank' onClick={() => handleClick(rank.usuario,rank.tag)}>
+                    <img className='usuario-pfp' src='src\assets\img\Grandmaster_Emblem.png' />
                     <div className='rank-info'>
                         <div className='rank-info-top'>                    
                             <h3 className='usuario'>{rank.usuario}#({rank.tag})</h3>
                             <button className='rank-dlt' onClick={() => handleDelete(index)}>
-                                <img className='lixo' src='src\assets\img\lixo.png' />
+                                <img className='lixo' src='src\assets\img\lixoW.png' />
                             </button>
                         </div>
                         <div className='rank-info-bottom'>   
