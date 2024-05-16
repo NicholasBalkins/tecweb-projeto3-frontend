@@ -8,7 +8,7 @@ export default function Login() {
         event.preventDefault();
         //TODO: Aqui é com você! Faça a requisição para o backend para a rota api/token/
         // O retorno da requisição deve ser um token
-        axios.post('http://localhost:8000/api/cadastro/')
+        axios.post('http://127.0.0.1:8000/api/cadastro/')
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('token', token);
@@ -40,21 +40,22 @@ export default function Login() {
         event.preventDefault();
         // TODO: Make the request to the backend API with the form data
         console.log(username,email,password);
-        // axios.post('http://localhost:8000/api/cadastro/', {
-        //     username: username,
-        //     email: email,
-        //     password: password
-        // })
-        axios.post(`http://localhost:8000/api/cadastro/${username}/${email}/${password}/`)
+        axios.post('http://127.0.0.1:8000/api/cadastro/', {
+            username: username,
+            email: email,
+            password: password
+        })
+        // axios.post(`http://localhost:8000/api/cadastro/${username}/${email}/${password}/`)
         .then(response => {
             const token = response.data.token;
             localStorage.setItem('token', token);
             console.log(response.data);
+            window.location.href = '/app';
         })
         .catch(error => {
             console.error('Error:', error);
         });
-        // window.location.href = '/';
+        
     }
 
     return (

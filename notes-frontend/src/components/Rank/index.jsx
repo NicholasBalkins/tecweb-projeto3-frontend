@@ -5,11 +5,12 @@ import './index.css';
 
 function Rank() {
     const [ranks, setRanks] = useState([]);
+    
 
 
     useEffect(() => {
         const fetchRanks = () => {
-            axios.get('https://projeto-2-backend-nicholas.onrender.com/api/all_ranks/')
+            axios.get('http://127.0.0.1:8000/api/all_ranks/')
             .then(response => {
                 setRanks(response.data);
             })
@@ -19,20 +20,20 @@ function Rank() {
         };
 
         fetchRanks();  // Chama imediatamente ao montar o componente
-        const intervalId = setInterval(fetchRanks, 500);  // Configura o polling a cada 5 segundos
+        const intervalId = setInterval(fetchRanks, 10000);  // Configura o polling a cada 5 segundos
 
         return () => clearInterval(intervalId);  // Limpa o intervalo quando o componente é desmontado
     }, []);
 
-    const handleDelete = (id) => {
-        axios.post('https://projeto-2-backend-nicholas.onrender.com/api/delete_rank/', { id })
-            .then(response => {
-                // Handle successful deletion
-            })
-            .catch(error => {
-                console.error('Falha ao deletar o rank', error);
-            });
-    };
+    // const handleDelete = (id) => {
+    //     axios.post(`http://127.0.0.1:8000/api/cadastro/${username}/${email}/${password}/`)
+    //         .then(response => {
+    //             // Handle successful deletion
+    //         })
+    //         .catch(error => {
+    //             console.error('Falha ao deletar o rank', error);
+    //         });
+    // };
 
     const handleClick = (user,tag) => {
         // Navigate to a new page based on the rank data
@@ -48,9 +49,9 @@ function Rank() {
                     <div className='rank-info'>
                         <div className='rank-info-top'>                    
                             <h3 className='usuario'>{rank.usuario}#({rank.tag})</h3>
-                            <button className='rank-dlt' onClick={() => handleDelete(index)}>
+                            {/* <button className='rank-dlt' onClick={() => handleDelete(index)}>
                                 <img className='lixo' src='src\assets\img\lixoW.png' />
-                            </button>
+                            </button> */}
                         </div>
                         <div className='rank-info-bottom'>   
                             <img className='rank-img' src='src\assets\img\Grandmaster_Emblem.png' />

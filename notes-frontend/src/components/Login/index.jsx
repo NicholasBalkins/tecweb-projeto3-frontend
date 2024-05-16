@@ -31,23 +31,26 @@ export default function Login() {
         setPassword(event.target.value);
     }
 
+    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         // TODO: Send the form data to the backend
-        // const formData = {
-        //     username: username,
-        //     password: password
-        // };
-        // axios.post('http://localhost:8000/api/login/', formData)
-        axios.post(`http://localhost:8000/api/login/${username}/${password}/`)
+        const formData = {
+            username: username,
+            password: password
+        };
+        axios.post('http://127.0.0.1:8000/api/login/', formData)
+        // axios.post(`http://localhost:8000/api/login/${username}/${password}/`)
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('token', token);
+                window.location.href = '/app';
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        window.location.href = '/';
+        
     }
 
     return (

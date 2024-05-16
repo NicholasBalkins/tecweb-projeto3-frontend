@@ -5,15 +5,27 @@ import axios from 'axios';
 export default function Formulario({ setRankData }) {  // Recebe setRankData como prop
     const [usuario, setUsuario] = useState('');
     const [tag, setTag] = useState("");
+    
+    const config = {
+        headers: {
+          Authorization: `token ${localStorage.getItem("token")}`,
+        },
+      };
 
     const acharRank = (event) => {
         event.preventDefault();
-        const data = {
+        const userdata = {
+
             "usuario": usuario,
             "tag": tag,
         }
 
-        axios.post(`https://projeto-2-backend-nicholas.onrender.com/api/${usuario}/${tag}/`, data)
+        const data = {
+            config: config,
+            userdata: userdata,
+        }
+
+        axios.post(`http://127.0.0.1:8000/api/${usuario}/${tag}/`, data)
         .then((response) => {
             setRankData(response.data);  // Passa os dados do ranking para o componente pai
             setUsuario("");
@@ -21,6 +33,8 @@ export default function Formulario({ setRankData }) {  // Recebe setRankData com
         })
         .catch((error) => console.log(error));
     }
+
+    
 
 
     return (
