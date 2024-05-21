@@ -44,15 +44,15 @@ function Rank() {
     const handleClick = (user,tag) => {
         // Navigate to a new page based on the rank data
         // You can use React Router or any other navigation library here
-    
-        event.preventDefault();
+
+        
         // TODO: Send the form data to the backend
         const formData = {
             user: user,
             tag: tag
         };
         //Oi barbara
-        axios.post('http://127.0.0.1:8000/api/historico/', formData, config)
+        axios.post(`http://127.0.0.1:8000/api/historico/${user}/${tag}/`)
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('token', token);

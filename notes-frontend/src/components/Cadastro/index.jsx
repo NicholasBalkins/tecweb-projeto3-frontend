@@ -12,6 +12,12 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const config = {
+        headers: {
+          Authorization: `token ${localStorage.getItem("token")}`,
+        },
+      };
+
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     }
@@ -32,7 +38,7 @@ export default function Login() {
             username: username,
             email: email,
             password: password
-        })
+        },config)
         // axios.post(`http://localhost:8000/api/cadastro/${username}/${email}/${password}/`)
         .then(response => {
             const token = response.data.token;
