@@ -5,12 +5,18 @@ import './index.css';
 
 function Rank() {
     const [ranks, setRanks] = useState([]);
+
+    const config = {
+        headers: {
+          Authorization: `token ${localStorage.getItem("token")}`,
+        },
+      };
     
 
 
     useEffect(() => {
         const fetchRanks = () => {
-            axios.get('http://127.0.0.1:8000/api/all_ranks/')
+            axios.get('http://127.0.0.1:8000/api/all_ranks/',config)
             .then(response => {
                 setRanks(response.data);
             })
@@ -45,7 +51,8 @@ function Rank() {
             user: user,
             tag: tag
         };
-        axios.post('http://127.0.0.1:8000/api/historico/', formData)
+        //Oi barbara
+        axios.post('http://127.0.0.1:8000/api/historico/', formData, config)
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('token', token);
