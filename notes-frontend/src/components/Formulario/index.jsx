@@ -20,12 +20,8 @@ export default function Formulario({ setRankData }) {  // Recebe setRankData com
             "tag": tag,
         }
 
-        const data = {
-            config: config,
-            userdata: userdata,
-        }
 
-        axios.post(`http://127.0.0.1:8000/api/${usuario}/${tag}/`, data)
+        axios.post(`http://127.0.0.1:8000/api/${usuario}/${tag}/`, userdata,config)
         .then((response) => {
             setRankData(response.data);  // Passa os dados do ranking para o componente pai
             setUsuario("");

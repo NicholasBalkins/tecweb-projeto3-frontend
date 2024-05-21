@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Cadastro />,
   },
   {
-    path: "/historico",
+    path: "/historico/:user/:tag",
     element: <Historico />,
   },
 

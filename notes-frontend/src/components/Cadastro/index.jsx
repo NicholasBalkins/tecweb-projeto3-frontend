@@ -2,27 +2,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import './style.css';
 import AppBar from '../AppBar';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Login() {
-    const login = (event) => {
-        event.preventDefault();
-        //TODO: Aqui é com você! Faça a requisição para o backend para a rota api/token/
-        // O retorno da requisição deve ser um token
-        axios.post('http://127.0.0.1:8000/api/cadastro/')
-            .then(response => {
-                const token = response.data.token;
-                localStorage.setItem('token', token);
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        
-    }
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -46,11 +34,9 @@ export default function Login() {
             password: password
         })
         // axios.post(`http://localhost:8000/api/cadastro/${username}/${email}/${password}/`)
-        .then(response => {
-            const token = response.data.token;
-            localStorage.setItem('token', token);
-            console.log(response.data);
-            window.location.href = '/app';
+        .then(
+            navigate('/');
+            window.location.href = '/';
         })
         .catch(error => {
             console.error('Error:', error);
