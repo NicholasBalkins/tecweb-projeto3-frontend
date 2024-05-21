@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AppBar from '../AppBar'
 import Rank from '../Rank'
+import Match from '../Match';
 import { useParams } from 'react-router-dom';
 
 function Historico() {
@@ -22,32 +23,33 @@ function Historico() {
         };
 
         fetchRanks();  // Chama imediatamente ao montar o componente
-        const intervalId = setInterval(fetchRanks, 5000);  // Configura o polling a cada 5 segundos
 
-        return () => clearInterval(intervalId);  // Limpa o intervalo quando o componente é desmontado
     }, []);
-
     return (
         <>
-        <AppBar />
-        <Rank />
-        <div className='Historico'>
-            <p>Histórico</p>
-            <h1>KDA - RESULTADO - MODO DE JOGO</h1>
-            <ol className='linha'>
-                <ol className='col'>
-                    {historico.kills}
-                    {historico.deaths}
-                    {historico.assists}
+            <AppBar />
+            <Rank />
+            <div className='Historico'>
+                <h1>KDA - RESULTADO - MODO DE JOGO</h1>
+                <p>Histórico</p>
+                <ol className='linha'>
+                    {historico.map((match, index) => (
+                        <li key={index}>
+                            <ol className='col'>
+                                <li>Kills: {match.kills}</li>
+                                <li>Deaths: {match.deaths}</li>
+                                <li>Assists: {match.assists}</li>
+                            </ol>
+                            <ol className='col'>
+                                <li>Win: {match.win ? 'Yes' : 'No'}</li>
+                            </ol>
+                            <ol className='col'>
+                                <li>Game Mode: {match.game_mode}</li>
+                            </ol>
+                        </li>
+                    ))}
                 </ol>
-                <ol className='col'>
-                    {historico.win}
-                </ol>
-                <ol className='col'>
-                    {historico.game_mode}
-                </ol>
-            </ol>
-        </div>
+            </div>
         </>
     );
 }
