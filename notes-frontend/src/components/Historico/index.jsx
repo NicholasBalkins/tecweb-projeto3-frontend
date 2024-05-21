@@ -3,6 +3,7 @@ import axios from 'axios';
 import AppBar from '../AppBar';
 import Rank from '../Rank';
 import { useParams } from 'react-router-dom';
+import './style.css';
 
 function Historico() {
     const { user, tag } = useParams();
@@ -32,19 +33,19 @@ function Historico() {
                 <p>Histórico</p>
                 <ol className='linha'>
                     {historico.map((match, index) => (
-                        <li key={index} className='linha'>
-                            <ol className='col'>
-                                <li>Kills: {match.kills}</li>
-                                <li>Deaths: {match.deaths}</li>
-                                <li>Assists: {match.assists}</li>
-                            </ol>
-                            <ol className='col'>
-                                <li>Win: {match.win ? 'Yes' : 'No'}</li>
-                            </ol>
-                            <ol className='col'>
-                                <li>Game Mode: {match.game_mode}</li>
-                            </ol>
-                        </li>
+                        <p key={index} className='linha'>
+                            <div className='col'>
+                                <p>Kills: {match.kills}</p>
+                                <p>Deaths: {match.deaths}</p>
+                                <p>Assists: {match.assists}</p>
+                            </div>
+                            <div className='col'>
+                                <p>Win: {match.win ? 'Yes' : 'No'}</p>
+                            </div>
+                            <div className='col'>
+                                <p>Game Mode: {match.game_mode}</p>
+                            </div>
+                        </p>
                     ))}
                 </ol>
             </div>

@@ -1,0 +1,23 @@
+.linha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #323334;
+    border-radius: 25px;
+  }
+
+  .linha::before, .linha::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .linha::before {
+    margin-right: .25em;
+  }
+
+  .linha::after {
+    margin-left: .25em;
+}
