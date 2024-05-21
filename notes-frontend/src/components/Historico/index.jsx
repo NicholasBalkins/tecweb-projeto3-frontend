@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AppBar from '../AppBar'
-import Rank from '../Rank'
-import Match from '../Match';
+import AppBar from '../AppBar';
+import Rank from '../Rank';
 import { useParams } from 'react-router-dom';
 
 function Historico() {
     const { user, tag } = useParams();
     const [historico, setHist] = useState([]);
 
-
     useEffect(() => {
         const fetchRanks = () => {
             axios.get(`http://127.0.0.1:8000/api/historico/${user}/${tag}/`)
-            .then(response => {
-                setHist(response.data);
-                console.log(response.data)
-            })
-            .catch(error => {
-                console.error('Falha ao buscar o Historico', error);
-            });
+                .then(response => {
+                    setHist(response.data);
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error('Falha ao buscar o Historico', error);
+                });
         };
 
         fetchRanks();  // Chama imediatamente ao montar o componente
+    }, [user, tag]);
 
-    }, []);
     return (
         <>
             <AppBar />
@@ -34,7 +32,7 @@ function Historico() {
                 <p>Histórico</p>
                 <ol className='linha'>
                     {historico.map((match, index) => (
-                        <li key={index}>
+                        <li key={index} className='linha'>
                             <ol className='col'>
                                 <li>Kills: {match.kills}</li>
                                 <li>Deaths: {match.deaths}</li>
