@@ -34,9 +34,11 @@ export default function Login() {
             password: password
         })
         // axios.post(`http://localhost:8000/api/cadastro/${username}/${email}/${password}/`)
-        .then(
-            navigate('/');
-            window.location.href = '/';
+        .then(response => {
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            console.log(response.data);
+            window.location.href = '/app';
         })
         .catch(error => {
             console.error('Error:', error);
